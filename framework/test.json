@@ -2,10 +2,10 @@
     "name": "Machine Learning Manager Unit Test"
     , "tests": [
         {
-            "name": "Create x Model"
+            "name": "Create DBSCAN Model"
             , "url": "http://localhost:8188/data/perspective/client/MachineLearning_2022-11-28_1313"
-            , "actions": [
-                    {"name": "Click Documentation Button", "locator": {"value": "documentation", "name": "Button"}, "action": "click"}
+            , "steps": [
+                    {"element": {"elementType": "Button", "value": "create"}}
             ]
         }
     ]
