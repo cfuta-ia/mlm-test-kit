@@ -1,3 +1,4 @@
+import os
 from uuid import uuid4
 from .abstract import AbstractElement
 from selenium.webdriver.common.keys import Keys
@@ -46,7 +47,7 @@ class FileUpload(AbstractElement):
     """ """
     def __init__(self, data):
         AbstractElement.__init__(self, value="//*[@id='file-upload']/div[2]/div[1]/input", key="xpath")
-        self.data = data
+        self.data = os.path.join(os.getcwd(), 'framework', 'data', data)
 
     def action(self, driver):
         self.getElement(driver).send_keys(self.data)

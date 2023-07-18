@@ -3,10 +3,43 @@
     , "tests": [
         {
             "name": "Create DBSCAN Model"
-            , "url": "http://localhost:8188/data/perspective/client/MachineLearning_2022-11-28_1313"
-            , "steps": [
-                    {"element": {"elementType": "Button", "value": "create"}}
-            ]
+            , "url": "http://localhost:8188/data/perspective/client/MachineLearningManager"
+            , "template": {
+                "name": "createModel"
+                , "data": "economies-of-scale.csv"
+                , "modelType": "cluster"
+                , "algorithm": "dbscan"
+            }
+        }
+        , {
+            "name": "Create Fuzzy K Means Model"
+            , "url": "http://localhost:8188/data/perspective/client/MachineLearningManager"
+            , "template": {
+                "name": "createModel"
+                , "data": "economies-of-scale.csv"
+                , "modelType": "cluster"
+                , "algorithm": "fuzzy-k-means"
+            }
+        }
+        , {
+            "name": "Create K Means++ Model"
+            , "url": "http://localhost:8188/data/perspective/client/MachineLearningManager"
+            , "template": {
+                "name": "createModel"
+                , "data": "economies-of-scale.csv"
+                , "modelType": "cluster"
+                , "algorithm": "k-means-++"
+            }
+        }
+        , {
+            "name": "Create Decision Tree Model"
+            , "url": "http://localhost:8188/data/perspective/client/MachineLearningManager"
+            , "template": {
+                "name": "createModel"
+                , "data": "economies-of-scale.csv"
+                , "modelType": "decision-tree"
+                , "algorithm": "binary-classification"
+            }
         }
     ]
     , "closeOnComplete": false

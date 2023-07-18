@@ -1,24 +1,24 @@
 from ..element import element
-
+from .template import Templates
 class Test:
     """ """
-    def __init__(self, name, url, steps):
+    def __init__(self, name, url, template):
         self.name = name
         self.url = url
-        self.steps = steps
+        self.steps = Templates.getTemplate(**template)
         self.elements = {}
 
     def setElement(self, key, value):
         """ """
-        self.element[key] = value
+        self.elements[key] = value
 
     def getElement(self, key):
         """ """
-        return self.element[key]
+        return self.elements[key]
     
     def hashElement(self, **kwargs):
         """ """
-        hashKey = hash(kwargs.items())
+        hashKey = hash(kwargs.values())
         if hashKey in self.elements.keys():
             obj = self.getElement(hashKey)
         else:

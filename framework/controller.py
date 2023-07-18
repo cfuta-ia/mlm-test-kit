@@ -1,22 +1,22 @@
-from .util import webdriver, configuration
-from .util.test_sequence import TestSequence
+from framework.util import webdriver
+from framework.util.configuration import Configuration
+from framework.util.test import Test
 
-class Controller:
+
+class Controller(Configuration):
     """ """
     def __init__(self):
-        for key, value in configuration.get().items():
-            setattr(self, key, value)
-        self.tests = [TestSequence(**sequence) for sequence in self.tests]
+        Configuration.__init__(self)
 
-    def assess(self):
+    def evaluate(self):
         """ """
-        print(f'Name: {self.name}')
-        ## Do the things 
+        print(f'Starting Test\n{self.name}\n')
         driver = webdriver.get()
-        #driver = None
-        for sequence in self.tests:
-            print(f'\n{sequence}')
-            sequence.assess(driver)
-        
+        for obj in self.tests:
+            test = Test.fromObject(obj)
+            test.evaluate(driver)
+            print('')
+
         if self.closeOnComplete:
             driver.quit()
+        print('Ending Test')
